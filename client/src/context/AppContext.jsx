@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 axios.defaults.withCredentials = true;
 axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL;
-export const AppContext = createContext(null);
+export const appContext = createContext(null);
 
 export const AppContextProvider = ({ children }) => {
   const navigate = useNavigate();
@@ -156,9 +156,9 @@ export const AppContextProvider = ({ children }) => {
     fetchProducts,
     setCartItems,
   };
-  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
+  return <appContext.Provider value={value}>{children}</appContext.Provider>;
 };
 
 export const useAppContext = () => {
-  return useContext(AppContext);
+  return useContext(appContext);
 };
